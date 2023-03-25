@@ -31,10 +31,10 @@ int _printf(const char *format, ...)
 		else
 		{
 			format++;
-			prt *printf = func;
-			while (printf[0].specifier && printf[0].specifier != *format)
-				printf++;
-			if (printf[0].printf == NULL)
+			prt *fn = func;
+			while (fn[0].specifier && fn[0].specifier != *format)
+				fn++;
+			if (fn[0].fn == NULL)
 			{
 				_putchar('%');
 				_putchar(*format++);
@@ -42,7 +42,7 @@ int _printf(const char *format, ...)
 			}
 			else
 			{
-				count += printf[0].printf(arg);
+				count += fn[0].fn(arg);
 				format++;
 			}
 		}
