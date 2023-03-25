@@ -1,5 +1,5 @@
-#ifndef _PRINTF_H
-#define _PRINTF_H
+#ifndef _MAIN_H_
+#define _MAIN_H_
 
 #include <stdio.h>
 #include <stdarg.h>
@@ -17,6 +17,10 @@ typedef struct _printf_format
 	char specifier;
 	void(*printf)(va_list arg);
 
-	}_printf_t;
+}prt;
+int print_char(va_list arg);
+int print_str(va_list arg);
+int print_percent(va_list arg);
+int _putchar(char c);
 
 #endif
