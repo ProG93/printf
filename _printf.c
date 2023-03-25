@@ -19,6 +19,8 @@ int _printf(const char *format, ...)
 		{'\0', NULL},
 
 	};
+	prt *fn;
+	fn = func;
 
 	va_start(arg, format);
 	while (*format)
@@ -31,7 +33,7 @@ int _printf(const char *format, ...)
 		else
 		{
 			format++;
-			prt *fn = func;
+
 			while (fn[0].specifier && fn[0].specifier != *format)
 				fn++;
 			if (fn[0].fn == NULL)
