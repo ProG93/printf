@@ -7,7 +7,7 @@
 int _printf(const char *format, ...);
 
 /*
- * struct _printf_format - function that prints all formats
+ * struct _printf_format - prints all formats
  * @specifier: printf specifier
  * @printf: print function pointer
  */
@@ -17,7 +17,7 @@ typedef struct _printf_format
 	char specifier;
 	int (*fn)(va_list);
 
-}prt;
+} prt;
 int print_char(va_list arg);
 int print_str(va_list arg);
 int print_percent(va_list arg);

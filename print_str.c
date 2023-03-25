@@ -18,5 +18,5 @@ int print_str(va_list arg)
 		_putchar(*str++);
 		count++;
 	}
-	return count;
+	return (count);
 }

@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * _printf - function that imitates printf
  * @format: format string
@@ -9,9 +8,9 @@
 int _printf(const char *format, ...)
 {
 	int count = 0;
-	
-	va_list arg;
+	prt *fn;
 
+	va_list arg;
 	prt func[] = {
 		{'c', print_char},
 		{'s', print_str},
@@ -19,9 +18,8 @@ int _printf(const char *format, ...)
 		{'\0', NULL},
 
 	};
-	prt *fn;
-	fn = func;
 
+	fn = func;
 	va_start(arg, format);
 	while (*format)
 	{
@@ -33,7 +31,6 @@ int _printf(const char *format, ...)
 		else
 		{
 			format++;
-
 			while (fn[0].specifier && fn[0].specifier != *format)
 				fn++;
 			if (fn[0].fn == NULL)
