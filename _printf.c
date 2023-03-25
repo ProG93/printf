@@ -33,7 +33,7 @@ int _printf(const char *format, ...)
 			format++;
 			prt *printf = func;
 			while (printf[0].specifier && printf[0].specifier != *format)
-				_printf_t++;
+				printf++;
 			if (printf[0].printf == NULL)
 			{
 				_putchar('%');
