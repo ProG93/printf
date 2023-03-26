@@ -7,23 +7,26 @@
  */
 int _printf(const char *format, ...)
 {
-	int count = 0;
-	prt *fn;
+	int i, count = 0;
+	int *fn;
 	va_list arg;
 
 	va_start(arg, format);
-	while (*format)
+	if (format == NULL)
+		return (-1);
+	for (i = 0; format[i]; i++)
 	{
-		if (*format != '%')
+		if (format[i] != '%')
 		{
-			_putchar(*format++);
+			_putchar(format[i]);
 			count++;
 		}
 		else
 		{
-			format++;
-			while (fn[0].specifier && fn[0].specifier != *format)
-				fn++;
+			i++;
+			if (!format[i])
+				return (-1);
+			fn = 
 			if (fn[0].fn == NULL)
 			{
 				_putchar('%');
