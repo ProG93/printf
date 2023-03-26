@@ -18,7 +18,7 @@ typedef struct _printf_format
 	int (*fn)(va_list);
 
 } prt;
-
+int (*check_specifier(const char *format))(va_list args);
 int print_char(va_list arg);
 int print_str(va_list arg);
 int print_percent(va_list arg);
