@@ -29,9 +29,9 @@ int (*get_sfunc(const char *format))(va_list args)
 
 	};
 
-	for (i = 0; p[i].t != '\0'; i++)
+	for (i = 0; p[i].t != NULL; i++)
 	{
-		if (*(p[i].t == *format)
+		if (*(p[i].t) == *format)
 			break;
 	}
 	return (p[i].f);

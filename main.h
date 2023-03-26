@@ -2,10 +2,10 @@
 #define _MAIN_H_
 
 #include <stdarg.h>
-<<<<<<< HEAD
 #include <stdlib.h>
 #include <stddef.h>
 #include <unistd.h>
+#include <stdio.h>
 
 
 /*
@@ -21,17 +21,8 @@ typedef struct _printf_format
 
 } print_type;
 
-int _printf(const char *format, ...);
-=======
-#include <stdio.h>
-#include <unistd.h>
 
 int _printf(const char *format, ...);
-int (*check_specifier(const char *format))(va_list args);
-int print_char(va_list args);
-int print_str(va_list args);
-int print_percent(va_list args);
->>>>>>> b8872c9b4c10b5e06b73c4ca050e27a8145f1dbd
 int _putchar(char c);
 int print_c(va_list arg);
 int print_s(va_list arg);
