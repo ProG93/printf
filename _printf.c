@@ -24,11 +24,13 @@ int _printf(const char *format, ...)
 			if (handler == NULL)
 			{
 				_putchar('%');
-				count++;
+				_putchar(*format++);
+				count += 2;
 			}
 			else
 			{
 				count += handler(args);
+				format++;
 			}
 			format++;
 		}
