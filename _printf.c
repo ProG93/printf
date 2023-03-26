@@ -10,8 +10,8 @@ int _printf(const char *format, ...)
 	int count = 0;
 	va_list arg;
 	prt *fn;
-	fn = func;
 
+	fn = func;
 	if (format == NULL)
 		return (-1);
 
@@ -28,7 +28,7 @@ int _printf(const char *format, ...)
 		{
 			format++;
 			while (fn[0].specifier && fn[0].specifier != *format)
-				fn++; 
+				fn++;
 			if (fn[0].fn == NULL)
 			{
 				_putchar('%');

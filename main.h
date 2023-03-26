@@ -18,7 +18,6 @@ typedef struct _printf_format
 	int (*fn)(va_list);
 
 } prt;
-extern prt func[];
 
 int print_char(va_list arg);
 int print_str(va_list arg);
