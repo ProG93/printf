@@ -15,9 +15,11 @@ int _printf(const char *format, ...);
 typedef struct _printf_format
 {
 	char specifier;
-	int (*fn)(va_list, char[], int, int, int, int);
+	int (*fn)(va_list);
 
 } prt;
+extern prt func[];
+
 int print_char(va_list arg);
 int print_str(va_list arg);
 int print_percent(va_list arg);

@@ -7,36 +7,38 @@
  */
 int _printf(const char *format, ...)
 {
-	int i, count = 0;
-	int (*ptr)(va_list);
+	int count = 0;
 	va_list arg;
-	void get_sfunc();
+	prt *fn;
+	fn = func;
 
-	va_start(arg, format);
 	if (format == NULL)
 		return (-1);
-	for (i = 0; format[i]; i++)
+
+	va_start(arg, format);
+
+	while (*format)
 	{
-		if (format[i] != '%')
+		if (*format != '%')
 		{
-			_putchar(format[i]);
+			_putchar(*format++);
 			count++;
 		}
 		else
 		{
-			i++;
-			if (!format[i])
-				return (-1);
-			ptr = get_sfunc(format[i]); 
-			if (ptr == NULL)
+			format++;
+			while (fn[0].specifier && fn[0].specifier != *format)
+				fn++; 
+			if (fn[0].fn == NULL)
 			{
 				_putchar('%');
-				_putchar(format[i]);
+				_putchar(*format++);
 				count += 2;
 			}
 			else
 			{
-				count += ptr(arg);
+				count += fn[0].fn(arg);
+				format++;
 			}
 		}
 	}
