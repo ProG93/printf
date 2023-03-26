@@ -7,38 +7,40 @@
  */
 int _printf(const char *format, ...)
 {
-	int i, count = 0;
+	unsigned int i = 0, count = 0;
 	int (*ptr)(va_list);
 	va_list arg;
-	void get_sfunc();
 
-	va_start(arg, format);
 	if (format == NULL)
 		return (-1);
-	for (i = 0; format[i]; i++)
+
+	va_start(arg, format);
+
+	while (format[i])
 	{
-		if (format[i] != '%')
+		for (; format[i] != '%' && format[i]; i++)
 		{
 			_putchar(format[i]);
 			count++;
 		}
-		else
+		if (!format[i])
+			return (count);
+
+		ptr = get_sfunc(&format[i + 1]);
+		if (ptr != NULL)
 		{
-			i++;
-			if (!format[i])
-				return (-1);
-			ptr = get_sfunc(format[i]); 
-			if (ptr == NULL)
-			{
-				_putchar('%');
-				_putchar(format[i]);
-				count += 2;
-			}
-			else
-			{
-				count += ptr(arg);
-			}
+			count += ptr(arg);
+			i += 2;
+			continue;
 		}
+		if (!format[i + 1] == '%')
+			return (-1);
+			_putchar(format[i]);
+			count++
+			i += 2;
+
+			else
+				i++;
 	}
 	va_end(arg);
 	return (count);
