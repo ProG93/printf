@@ -1,27 +1,15 @@
 #ifndef _MAIN_H_
 #define _MAIN_H_
 
-#include <stdio.h>
 #include <stdarg.h>
+#include <stdio.h>
+#include <unistd.h>
 
 int _printf(const char *format, ...);
-
-/*
- * struct _printf_format - prints all formats
- * @specifier: printf specifier
- * @printf: print function pointer
- */
-
-typedef struct _printf_format
-{
-	char specifier;
-	int (*fn)(va_list);
-
-} prt;
 int (*check_specifier(const char *format))(va_list args);
-int print_char(va_list arg);
-int print_str(va_list arg);
-int print_percent(va_list arg);
+int print_char(va_list args);
+int print_str(va_list args);
+int print_percent(va_list args);
 int _putchar(char c);
 
 #endif

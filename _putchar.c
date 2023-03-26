@@ -1,8 +1,8 @@
-#include <unistd.h>
+#include "main.h"
 
 /**
- * _putchar - prints character
- * @c: character to be printed
+ * _putchar - print character to stdout
+ * @c: character
  *
  * Return: 1 for success
  * On error, -1, is returned and errno is set appropriately
