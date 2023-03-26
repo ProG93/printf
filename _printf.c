@@ -9,17 +9,8 @@ int _printf(const char *format, ...)
 {
 	int count = 0;
 	prt *fn;
-
 	va_list arg;
-	prt func[] = {
-		{'c', print_char},
-		{'s', print_str},
-		{'%', print_percent},
-		{'\0', NULL},
 
-	};
-
-	fn = func;
 	va_start(arg, format);
 	while (*format)
 	{
