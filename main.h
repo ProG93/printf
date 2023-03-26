@@ -4,6 +4,8 @@
 #include <stdarg.h>
 <<<<<<< HEAD
 #include <stdlib.h>
+#include <stddef.h>
+#include <unistd.h>
 
 
 /*

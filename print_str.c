@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * print_str - prints a string to stdout
+ * print_s - prints a string to stdout
  * @args: va_list containing the string to be printed
  *
  * Return: number of characters printed
  */
-int print_str(va_list args)
+int print_s(va_list args)
 {
 	char *str = va_arg(args, char *);
 	int count = 0;
@@ -14,11 +14,9 @@ int print_str(va_list args)
 	if (str == NULL)
 		str = "(null)";
 
-	while (*str != '\0')
+	for (count = 0; str[count]; count++)
 	{
-		_putchar(*str);
-		str++;
-		count++;
+		_putchar(str[count]);
 	}
 
 	return (count);
