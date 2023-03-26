@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
-  *_sfunc - finds function pointer
+  *get_sfunc - finds function pointer
   *@c: specifier
   *Return: pointer
   */
 
-int (*_sfunc(const char c))(va_list)
+int (*get_sfunc(const char c))(va_list)
 {
 	unsigned int n = 0;
 
@@ -25,10 +25,10 @@ int (*_sfunc(const char c))(va_list)
 		{'R', print_rot13},
 		{'r', print_r}
 	};
-	for (; func[n].specifier)
+	for (; func[n].specifier; n++)
 	{
 		if (c == func[n].specifier)
-			return (func[n].f);
+			return (func[n].fn);
 	}
 	return (NULL);
 }

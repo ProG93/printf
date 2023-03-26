@@ -15,7 +15,7 @@ int _printf(const char *format, ...);
 typedef struct _printf_format
 {
 	char specifier;
-	int (*fn)(va_list);
+	int (*fn)(va_list, char[], int, int, int, int);
 
 } prt;
 int print_char(va_list arg);

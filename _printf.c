@@ -8,8 +8,9 @@
 int _printf(const char *format, ...)
 {
 	int i, count = 0;
-	int *fn;
+	int (*ptr)(va_list);
 	va_list arg;
+	void get_sfunc();
 
 	va_start(arg, format);
 	if (format == NULL)
@@ -26,17 +27,16 @@ int _printf(const char *format, ...)
 			i++;
 			if (!format[i])
 				return (-1);
-			fn = 
-			if (fn[0].fn == NULL)
+			ptr = get_sfunc(format[i]); 
+			if (ptr == NULL)
 			{
 				_putchar('%');
-				_putchar(*format++);
+				_putchar(format[i]);
 				count += 2;
 			}
 			else
 			{
-				count += fn[0].fn(arg);
-				format++;
+				count += ptr(arg);
 			}
 		}
 	}
