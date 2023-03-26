@@ -12,7 +12,7 @@ int print_str(va_list arg)
 	int count = 0;
 
 	if (str == NULL)
-		str = "null";
+		str = "(null)";
 	while (*str)
 	{
 		_putchar(*str++);
