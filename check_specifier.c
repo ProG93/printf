@@ -1,16 +1,17 @@
 #include "main.h"
-#include <stddef.h>
 
 /**
- * get_sfunc - finds function pointer for given specifier
- * @format: format string containing conversion specifier
- *
- * Return: pointer to function that handles the conversion specifier
+ * check_specifier - checks for specifier
+ * @format: format string
+ * @count: char to be printed
+ * @i: format string iterator
+ * @args: va_list
+ * Return: count
  */
-int (*get_sfunc(const char *format))(va_list args)
+
+int (*check_specifier(const char *format))(va_list args)
 {
 	unsigned int i;
-
 	print_type p[] = {
 		{"c", print_c},
 		{"s", print_s},
@@ -26,7 +27,6 @@ int (*get_sfunc(const char *format))(va_list args)
 		{"r", print_r},
 		{"R", print_R},
 		{NULL, NULL}
-
 	};
 
 	for (i = 0; p[i].t != NULL; i++)
@@ -34,5 +34,6 @@ int (*get_sfunc(const char *format))(va_list args)
 		if (*(p[i].t) == *format)
 			break;
 	}
+
 	return (p[i].f);
 }
