@@ -2,7 +2,7 @@
 
 _printf is a function that imitates printf in the stdio.h library. This project is carried out by:
 - Progress Goga
-- Kamaldeen Usman
+- Kamaldeen Usman @github/horlahuk
 
 ALX Software Engineering students(COHORT 12)
 
